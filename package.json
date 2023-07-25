@@ -1,0 +1,50 @@
+{
+  "name": "nucleus-rn",
+  "version": "1.0.0",
+  "main": "./dist/bundle.cjs.js",
+  "module": "./dist/bundle.esm.js",
+  "types": "./dist/types/index.d.ts",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://www.nucleus.sh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nucleus-sh/nucleus-browser.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "nodemon -w src -e ts,js --exec 'yarn build-dev'",
+    "watch-expo-rn": "nodemon -w . -e js,json,ts --ignore dist/ --exec 'yarn build-dev && rsync -av --exclude=\"node_modules\" . ./playground/expo-rn/node_modules/nucleus-rn/ && echo Synced!'",
+    "build-dev": "BUILD_DEV=true rollup -c"
+  },
+  "devDependencies": {
+    "@react-native-async-storage/async-storage": "^1.19.1",
+    "@react-native-community/netinfo": "^9.4.1",
+    "@rollup/plugin-commonjs": "^25.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@types/clientjs": "^0.2.0",
+    "@types/nanoid": "^3.0.0",
+    "@types/react-native": "^0.72.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "nodemon": "^3.0.1",
+    "rollup": "^3.26.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@react-native-async-storage/async-storage": "^1.19.1",
+    "@react-native-community/netinfo": "^9.4.1",
+    "react": "^18.2.0",
+    "react-native": "^0.72.3"
+  }
+}
