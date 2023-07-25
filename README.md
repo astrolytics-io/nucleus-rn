@@ -1,4 +1,4 @@
-# Nucleus.sh Browser SDK
+# Nucleus.sh React Native SDK
 
 ![Nucleus.sh](https://intriguing-lemonade-efa.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb00319ab-5801-40dc-b0f4-5de683b11d61%2Fgithub_browser_sdk_banner.jpg?id=9fabfb89-61d3-4d87-97ff-ef88c9bd8947&table=block)
 
@@ -18,30 +18,15 @@ use the SDK to start tracking events.
 As NPM package (recommended)
 
 ```bash
-# with npm
-npm install nucleus-browser
-
-# or with yarn
-yarn add nucleus-browser
-```
-
-or as browser script
-
-```
-<script src="https://cdn.jsdelivr.net/npm/nucleus-browser/dist/bundle.iife.js"></script>
-```
-
-we recommend using a specific version in case a non-backwards compatible change is introduced
-
-```
-<script src="https://cdn.jsdelivr.net/npm/nucleus-browser@1.0.6/dist/bundle.iife.js"></script>
+# with yarn
+yarn add nucleus-rn
 ```
 
 ### Usage
 
 
 ```javascript
-import Nucleus from 'nucleus-browser';
+import Nucleus from 'nucleus-rn';
 
 Nucleus.init('YOUR_APP_ID');
 ```
@@ -56,6 +41,7 @@ Nucleus supports passing the following options as second argument to the `Nucleu
 
 ```js
 Nucleus.init('APP_ID', {
+  appVersion: '0.0.0', // the version of your application
   endpoint: 'wss://app.nucleus.sh', // only option, we don't allow self hosting yet :(
   disableInDev: true, // disable in development mode. We recommend not to call
                       // `init` method, as that will be more reliable.
@@ -87,24 +73,26 @@ Track errors with a name and the Error object.
 Nucleus.trackError(name, error);
 ```
 
-By default Nucleus will listen for `window.onerror` and `window.onunhandledrejection` events and send them to the API. If you want
+By default Nucleus registers a handler for `ErrorUtils.setGlobalHandler` that sends `'GlobalError'` errors to the API. If you want
 to disable this behaviour, you can set `disableErrorReports` to `true`:
 
 ```js
 Nucleus.init('APP_ID', { disableErrorReports: true })
 ```
 
+and catch errors manually using `Nucleus.trackError('an error', errObject)`.
+
 ### User Identification
 
 Identify a user by a unique ID and optionally set custom properties.
 
 ```javascript
-Nucleus.identify('04f8846d-ecca-4a81-8740-f6428ceb7f7b', { firstName: 'Brendan', lastName: 'Eich' });
+Nucleus.identify('04f8846d-ecca-4a81-8740-f6428ceb7f7b', { firstName: 'Jordan', lastName: 'Walke' });
 ```
 
 ### Page Tracking
 
-Track page views with the page name and optional parameters. If the page name is not provided, the current window's pathname is used.
+Track page views with the page name and optional parameters.
 
 ```javascript
 Nucleus.page('/about', { foo: 'baz' });
@@ -135,10 +123,3 @@ We're always looking for contributions from the community. Here's how you can he
 1. **Report Bugs**: Create an issue report detailing the bug you've found.
 2. **Suggest Features**: Have a great idea for Nucleus? Don't hesitate to put it forward by creating an issue.
 3. **Submit Pull Requests**: Feel free to fix a bug or add a new feature and create a pull request. Make sure to follow the existing code style, and write clear commit messages explaining your changes.
-
-## Development
-
-1. clone the repo
-2. `cd` into one of the `./playground` projects
-3. link the SDK with `wml add ../../ ./playground/expo-rn/node_modules/`
-4. `yarn ios` or `yarn start`
