@@ -9,7 +9,7 @@
   "homepage": "https://www.nucleus.sh",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nucleus-sh/nucleus-browser.git"
+    "url": "https://github.com/nucleus-sh/nucleus-rn.git"
   },
   "files": [
     "dist"
