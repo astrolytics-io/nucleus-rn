@@ -1,6 +1,6 @@
 # Nucleus.sh React Native SDK
 
-![Nucleus.sh](https://intriguing-lemonade-efa.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb00319ab-5801-40dc-b0f4-5de683b11d61%2Fgithub_browser_sdk_banner.jpg?id=9fabfb89-61d3-4d87-97ff-ef88c9bd8947&table=block)
+![Nucleus.sh](https://intriguing-lemonade-efa.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F98020d0c-fd01-43ff-a29e-8f1c8f30de4b%2Fmsdncsmcnsm.jpg?table=block&id=db0f27a3-321c-400e-9ca7-db0213d1dee1)
 
 ## Table of Contents
 
