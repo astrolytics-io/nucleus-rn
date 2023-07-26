@@ -4,7 +4,7 @@ import { getDeviceInfo } from './device';
 import { isDevMode, cleanEvent, generateNumId, ExtendedWebSocket } from './utils';
 import defaults from './config';
 import Logger from './logger';
-import type { Options, ServerACK, InitOrErrorEvent, HeartbeatEvent, NucleusEvent, Store } from './types';
+import type { Options, ServerACK, HeartbeatEvent, NucleusEvent, Store } from './types';
 import buildStore from './store';
 
 // eslint-disable-next-line no-use-before-define
