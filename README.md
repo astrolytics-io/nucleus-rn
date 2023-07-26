@@ -49,7 +49,6 @@ Nucleus.init('APP_ID', {
   disableTracking: false, // will not track anything. You can also use `Nucleus.disableTracking()`.
                           // note that some events will still be added to the queue, so if you call
                           // Nucleus.enableTracking() again, they will be sent to the server.
-  automaticPageTracking: true, // will track all page changes.
   reportInterval: 2 * 1000, // at which interval the events are sent to the server.
   sessionTimeout: 60 * 30 * 1000, // time after which the session is ended
   cutoff: 60 * 60 * 48 * 1000, // time after which event that were not sent yet are deleted
@@ -90,15 +89,13 @@ Identify a user by a unique ID and optionally set custom properties.
 Nucleus.identify('04f8846d-ecca-4a81-8740-f6428ceb7f7b', { firstName: 'Jordan', lastName: 'Walke' });
 ```
 
-### Page Tracking
+### Screen Tracking
 
-Track page views with the page name and optional parameters.
+Track screen views with the screen name and optional parameters.
 
 ```javascript
 Nucleus.page('/about', { foo: 'baz' });
 ```
-
-By default, Nucleus will track any page change by polling the url every 50 ms. If you prefer to manually track page changes, set `automaticPageTracking` to false and call `Nucleus.page()` on every page change.
 
 ### Disabling Tracking
 
