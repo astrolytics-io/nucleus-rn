@@ -34,7 +34,7 @@ export default class Nucleus {
     this.getClient()?.enableTracking();
   }
 
-  public static identify(newId: string, newProps: object | null = null) {
+  public static identify(newId: string | number | undefined, newProps: object | null = null) {
     this.getClient()?.identify(newId, newProps);
   }
 
@@ -247,7 +247,7 @@ export default class Nucleus {
     this.track(name, errorObject, 'error');
   }
 
-  private setUserId(newId: string) {
+  private setUserId(newId: string | undefined) {
     if (!newId || newId.trim() === '') {
       console.error('Nucleus: userId cannot be empty');
       return;
@@ -280,8 +280,8 @@ export default class Nucleus {
     this.track(null, this.stored.props, 'props');
   }
 
-  private identify(newId: string, newProps: object | null) {
-    this.setUserId(newId);
+  private identify(newId: string | number | undefined, newProps: object | null) {
+    this.setUserId(newId?.toString());
     if (newProps) this.setProps(newProps);
   }
 
