@@ -7,6 +7,9 @@ import Logger from './logger';
 import type { Options, ServerACK, HeartbeatEvent, NucleusEvent, Store } from './types';
 import buildStore from './store';
 
+console.warn('[Nucleus] Nucleus is now named Astrolytics. Please add the new package "astrolytics-rn" instead of this one, or go to www.astrolytics.io for more information.'
+ + ' This package will no longer receive updates.');
+
 // eslint-disable-next-line no-use-before-define
 let client: Nucleus | null = null;
 
